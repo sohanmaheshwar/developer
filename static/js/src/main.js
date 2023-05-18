@@ -1,7 +1,8 @@
-const { el, mount, text, list, setChildren, setStyle, setAttr } = redom
-import {setupSearch, searchButton, searchModal} from "./modules/search"
-import {addAnchorLinks, addCopyButtons, scrollSideMenu, header, blogAd, removeExpiredEvents, changelogFilter} from "./modules/utils"
-import { multiTabContentHandler} from "./modules/multiTab"
+const { mount } = redom
+import { setupSearch, searchButton, searchModal } from "./modules/search"
+import { addAnchorLinks, addCopyButtons, scrollSideMenu, header, blogAd, removeExpiredEvents, changelogFilter } from "./modules/utils"
+import { multiTabContentHandler } from "./modules/multiTab"
+import { createFeedbackElement } from "./modules/feedback";
 
 document.querySelectorAll('.modal-button').forEach(function (el) {
   el.addEventListener('click', function () {
@@ -69,5 +70,11 @@ document.addEventListener("DOMContentLoaded", function () {
       console.err("Could not setup search")
     }
   })()
+
+  // Init feedback on docs pages
+  let feedback = document.getElementById("feedback-wrapper")
+  if (feedback) {
+    createFeedbackElement(feedback)
+  }
 
 });
