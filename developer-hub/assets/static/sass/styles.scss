@@ -1,0 +1,307 @@
+@import "../../../../node_modules/@fermyon/styleguide/scss/fermyon-color";
+
+div#workspace {
+    width: 100%;
+    min-height: 100%;
+    padding-top: 5rem;
+}
+
+.workspace {
+    padding-top: 2rem;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.top-search {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $lightlavender;
+    border-radius: 0.67rem;
+    padding: 2rem;
+
+    .description {
+        padding: 1rem;
+    }
+
+    .search {
+        padding: 1rem;
+        width: 80%;
+        border-radius: 0.67rem;
+        background-color: $lightplum;
+        border: none;
+    }
+}
+
+.language-filter {
+    display: flex;
+    margin-top: 3rem;
+    width: 70%;
+    padding: 0 5% 1rem 5%;
+
+    .languages-list {
+        flex-grow: 1;
+        overflow-x: auto;
+        overflow-y: hidden;
+        display: flex;
+        justify-content: space-between;
+
+        .language-item {
+            padding: 0.5rem;
+            font-size: 1rem;
+            min-width: 50px;
+        }
+    }
+}
+
+.content-area {
+    background-color: $lightlavender;
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    position: relative;
+    min-height: 80vh;
+
+    .content-filter-bar {
+        width: 20%;
+        padding: 4rem 1rem 1rem 4rem;
+        font-size: 1rem;
+
+        .categories-listing {
+            position: sticky;
+            top: 5rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            .category-item {
+                padding: 0.2rem 0.4rem;
+                color: $oxfordblue;
+                border-radius: 0.67rem;
+                background-color: $lightplum;
+                margin: 0.5rem;
+
+                &.active {
+                    background-color: $lavender;
+                }
+            }
+        }
+    }
+
+    .content-listing {
+        padding: 1rem;
+        display: flex;
+        padding-right: 20%;
+        justify-content: space-around;
+        width: 100%;
+        flex-wrap: wrap;
+        align-content: flex-start;
+
+
+
+        .content-item-card {
+            margin-bottom: 1rem;
+            height: 200px;
+            min-width: 250px;
+            max-width: 250px;
+            display: flex;
+            flex-direction: column;
+            background-color: #f7f4f8;
+            padding: 1rem;
+            border-radius: 0.67rem;
+            transition: all 1s ease-in-out;
+            overflow: hidden;
+            margin-right: 0.5rem;
+
+            &.filtered-out {
+                display: none;
+            }
+
+            &.highlight {
+                color: black;
+
+                &:nth-of-type(1) {
+                    background-image: url("../images/gradient-spin-right-2.jpg");
+                }
+
+                &:nth-of-type(2) {
+                    background-image: url("../images/gradient-spin-right-1.jpg");
+                }
+
+                &:nth-of-type(3) {
+                    background-image: url("../images/gradient-spin-right-2.jpg");
+                }
+
+            }
+
+            .topbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .category {
+                    background-color: $lightlavender;
+                    display: inline-block;
+                    border-radius: 0.67rem;
+                    padding: 0.2rem 0.4rem;
+                    color: $darkspace;
+                    font-size: 0.8rem;
+                }
+
+                .icon {
+                    width: 20px;
+                    height: 20px;
+
+                    path {
+                        stroke: black;
+                    }
+                }
+            }
+
+            .content-title {
+                margin-top: 1rem;
+                flex-grow: 1;
+                font-size: 1.125rem;
+                font-weight: 600;
+            }
+
+            .tags {
+                font-size: 0.8rem;
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+}
+
+.preview-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    height: 100%;
+    width: 100%;
+
+    .preview-overlay {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        backdrop-filter: blur(6px) brightness(25%);
+    }
+
+    .preview-modal {
+        z-index: 1002;
+        height: 80%;
+        width: 80%;
+        max-width: 800px;
+        background-color: #f7f4f8;
+        border-radius: 0.67rem;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+
+        .close-button {
+            text-align: right;
+        }
+
+        .title {
+            margin-top: 2rem;
+            text-align: center;
+            margin-bottom: 0.2rem;
+        }
+
+        .author {
+            font-size: 0.9rem;
+            text-align: center;
+            color: $lavender
+        }
+
+        .description {
+            flex-grow: 1;
+            overflow-x: hidden;
+            overflow-y: auto;
+            font-size: 1rem;
+            padding: 2rem;
+        }
+
+        .bottom-bar {
+            display: flex;
+
+            .socials {
+                flex-grow: 1;
+            }
+        }
+    }
+}
+
+html.dark-theme {
+    .top-search {
+        background-color: $darkspace;
+
+        .search {
+            background-color: $oxfordblue;
+        }
+    }
+
+    .content-area {
+        background-color: $darkspace;
+
+        .content-filter-bar {
+            .categories-listing {
+                .category-item {
+                    color: $lightlavender;
+                    background-color: $oxfordblue;
+                    
+                    &.active {
+                        background-color: $midblue;
+                    }
+                }
+            }
+        }
+
+        .content-listing {
+            .content-item-card {
+                background-color: $oxfordblue;
+
+                .category {
+                    background-color: $lightlavender;
+                }
+            }
+        }
+    }
+
+    .preview-wrapper {
+        .preview-modal {
+            background-color: $oxfordblue;
+
+            .title {
+                color: $lightlavender;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1023px) {
+    .content-area {
+        flex-direction: column;
+
+        .content-filter-bar {
+            width: 100%;
+        }
+
+        .content-listing {
+            padding: 1rem;
+        }
+
+    }
+}

@@ -180,3 +180,19 @@ environment = { DESTINATION = "https://developer.fermyon.com/spin/cli-reference"
 [component.trigger]
 route = "/common/cli-reference"
 executor = { type = "wagi" }
+
+[[component]]
+source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.0.2/spin_static_fs.wasm", digest = "sha256:65456bf4e84cf81b62075e761b2b0afaffaef2d0aeda521b245150f76b96421b" }
+id = "developer-hub"
+files = [ { source = "developer-hub/assets", destination = "/" } ]
+environment = { FALLBACK_PATH = "index.html" }
+[component.trigger]
+route = "/hub/..."
+
+[[component]]
+source = "modules/bartholomew.wasm"
+id = "hub-bartholomew-api-server"
+environment = { PREVIEW_MODE = "0" }
+files = [ {source = "developer-hub/api/content", destination = "/content/"} , {source = "developer-hub/api/templates", destination="/templates/"}, {source = "developer-hub/api/scripts", destination="/scripts/"}, {source = "developer-hub/api/config", destination="/config/"}, {source = "developer-hub/api/shortcodes", destination="/shortcodes/"}]
+[component.trigger]
+route = "/hub/api/..."

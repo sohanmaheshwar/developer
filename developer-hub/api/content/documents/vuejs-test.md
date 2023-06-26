@@ -1,0 +1,13 @@
+title = "Something Something Vuejs"
+template = "render_body"
+date = "2022-10-15T00:22:56Z"
+content-type = "text/html"
+
+[extra]
+type = "hub_document"
+category = "Blog"
+language = "Rust"
+
+---
+
+This is some content about Vuejs

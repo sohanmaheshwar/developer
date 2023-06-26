@@ -1,0 +1,14 @@
+title = "Fermyon Developer"
+base_url = ""
+about = "Fermyon Developer — the home for you as a developer using Fermyon projects and products."
+index_site_pages = ["content_list"]
+
+[extra]
+copyright = "Fermyon"
+github = "https://github.com/fermyon/developer"
+twitter = "https://twitter.com/fermyontech"
+
+# Static assets that we need to provide
+favicon = "/static/image/favicon.png"
+twitter_card_type = "summary"
+twitter_card = "/static/image/twitter_card_summary.png"
